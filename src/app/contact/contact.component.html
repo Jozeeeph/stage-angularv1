@@ -1,0 +1,61 @@
+<section class="contact section-padding" id="section_7">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-12 mx-auto">
+
+                <form class="custom-form contact-form bg-white shadow-lg" [formGroup]="contactForm" action="#" method="post" role="form">
+                    <h2>Please Say Hi</h2>
+                    <div class="row">
+                
+                        <div class="col-lg-4 col-md-4 col-12">
+                            <input type="text" name="name" id="name" formControlName="name" class="form-control" placeholder="NAME/SOCIETY" required="">
+                        </div>
+                        <div *ngIf="name && name?.invalid && name?.dirty" class="alert alert-danger">
+                            name est obligatoire
+                        </div>
+                
+                        <div class="col-lg-4 col-md-4 col-12">
+                            <input type="email" name="email" id="email" formControlName="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="E-MAIL" required="">
+                        </div>
+                        <div *ngIf="email && email?.invalid && email?.touched" class="alert alert-danger">
+                            email est obligatoire
+                        </div>
+                
+                        <div class="col-lg-4 col-md-4 col-12">
+                            <input type="tel" name="phone" id="phone" formControlName="phone" class="form-control" placeholder="PHONE">
+                        </div>
+                        <div *ngIf="phone && phone?.invalid && phone?.dirty" class="alert alert-danger">
+                            phone est obligatoire et composé de 8 numéro
+                        </div>
+                
+                        <div class="col-12">
+                            <textarea class="form-control" rows="5" id="message" formControlName="message" name="message" placeholder="Message"></textarea>
+                        </div>
+                        <div *ngIf="message && message?.invalid && message?.dirty" class="alert alert-danger">
+                            message est obligatoire
+                        </div>
+                
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <label for="source">Where did you hear about us?</label>
+                            <select class="form-select" id="source" name="source">
+                                <option value="social_media" selected>Social Media</option>
+                                <option value="society">Society</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div> 
+                
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <label for="otherSource">If other, please specify</label>
+                            <input type="text" formControlName="source" name="otherSource" id="otherSource" class="form-control" placeholder="Source">
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="form-control" [disabled]="contactForm.invalid">Submit</button>
+                        </div>
+                    </div>
+                </form>
+                
+
+            </div>
+        </div>
+    </div>
+</section>
