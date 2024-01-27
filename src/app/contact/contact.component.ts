@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ContactServiceService } from '../services/contact-service.service';
+import { Contact } from '../interface/contact';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-contact',
@@ -8,7 +11,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class ContactComponent implements OnInit{
   contactForm!:FormGroup
-  constructor(private fb:FormBuilder){}
+  constructor(private fb:FormBuilder,private contactService:ContactServiceService){}
   ngOnInit(): void {
     this.contactForm=this.fb.group(
       {
@@ -33,5 +36,29 @@ export class ContactComponent implements OnInit{
   get message(){
     return this.contactForm.get('message');
   }
+
+  onsubmit(){
+    const formData=this.contactForm.value;
+   // console.log(formData);
+    this.onAddContact();
+    
+  }
+
+  onAddContact():void{
+    console.log(this.contactForm.value);
+    
+    this.contactService.addContact(this.contactForm.value).subscribe(
+      (response)=>{
+        console.log(response);
+        console.log("done");
+        
+      },
+      (error : HttpErrorResponse)=>{
+        console.log(error);
+      }
+    );
+  }
+
+
 
 }

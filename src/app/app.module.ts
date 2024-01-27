@@ -8,6 +8,13 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { VenueComponent } from './venue/venue.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule} from "@angular/common/http";
+import { AboutComponent } from './about/about.component';
+import { ReferencesComponent } from './references/references.component';
+import { PartnersComponent } from './partners/partners.component';
+import { MediasComponent } from './medias/medias.component';
+import { EventsComponent } from './events/events.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -15,12 +22,19 @@ import { ReactiveFormsModule } from '@angular/forms';
     ContactComponent,
     HeaderComponent,
     FooterComponent,
-    VenueComponent
+    VenueComponent,
+    AboutComponent,
+    ReferencesComponent,
+    PartnersComponent,
+    MediasComponent,
+    EventsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
