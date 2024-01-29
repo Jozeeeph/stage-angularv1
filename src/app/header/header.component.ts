@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  selectedSection: string = '#section_2';
 
+  onNavigate() {
+    if (this.selectedSection) {
+      const element = document.querySelector(this.selectedSection);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }
 }

@@ -19,10 +19,10 @@
                 </li>
 
                 <li class="nav-item">
-                    <select class="form-select" aria-label="Default select example" style="background-color:#273053;margin-top: 6%;color: white;">
-                        <option selected>References</option>
-                        <option>Partners</option>
-                        <option>Medias</option>
+                    <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedSection" (change)="onNavigate()" style="background-color:#273053;margin-top: 6%;color: white;">
+                        <option value="#section_2" selected>References</option>
+                        <option value="#section_3">Partners</option>
+                        <option value="#section_4">Medias</option>
                     </select>
                 </li>
 

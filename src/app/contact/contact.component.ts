@@ -51,6 +51,7 @@ export class ContactComponent implements OnInit{
       (response)=>{
         console.log(response);
         console.log("done");
+        alert("votre formulaire est bien envoyé");
         
       },
       (error : HttpErrorResponse)=>{
