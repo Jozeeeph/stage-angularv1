@@ -6,6 +6,10 @@
                 <form class="custom-form contact-form bg-white shadow-lg" [formGroup]="contactForm" action="#" method="post" role="form">
                     <h2>Please Say Hi</h2>
                     <div class="row">
+
+                        <div *ngIf="formSubmitted" class="alert alert-success">
+                            Your form has been submitted successfully!
+                          </div>
                 
                         <div class="col-lg-4 col-md-4 col-12">
                             <input type="text" name="name" id="name" formControlName="name" class="form-control" placeholder="NAME/SOCIETY" required="">

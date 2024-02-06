@@ -1,31 +1,16 @@
-<div class="event-container" id="section_5">
-    <h2 class="title">Events</h2><br>
-    <div class="event-card-container">
-        <div class="card">
-            <a href="https://www.youtube.com/watch?v=sYUCy62Tj3Y"><img class="card-img-top" src="../../assets/images/apii.jpg" alt="APII"></a>
-            <div class="card-body">
-                <h5 class="card-title">APII</h5>
-                <p>Concours d'invention</p>
-                <p class="card-text"><i class="bi bi-calendar"></i> 19 Février 2020</p>
-                <p class="card-text"><i class="bi bi-geo-alt-fill"></i> HOTEL LAICO Tunis</p>
-            </div>
-        </div>
 
-        <div class="card">
-            <a href="https://www.youtube.com/watch?v=j4aYe89-__8&t=1s"><img class="card-img-top" src="../../assets/images/passage.PNG" alt="Passage Radio Jeune"></a>
-            <div class="card-body">
-                <h5 class="card-title">Passage Radio Jeune</h5>
-                <p class="card-text"><i class="bi bi-calendar"></i> 27 Février 2020</p>
-                <p class="card-text"><i class="bi bi-geo-alt-fill"></i> Radio Jeune Tunis</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <a href="https://www.youtube.com/watch?v=v5-UQ0htJD0"><img class="card-img-top" src="../../assets/images/sfax.jpg" alt="DIG2S au salon Medibat"></a>
-            <div class="card-body">
-                <h5 class="card-title">“DIG2S” au salon Medibat</h5>
-                <p class="card-text"><i class="bi bi-calendar"></i> 14 Octobre 2021</p>
-                <p class="card-text"><i class="bi bi-geo-alt-fill"></i> Salon Medibat</p>
+<div id="section_5">
+    <div class="event-container">
+        <h2 class="mb-5" style="text-align: center;"><u class="text-info">Events</u></h2>
+        <div class="event-card-container" *ngFor="let e of events">
+            <div class="card">
+                <a [href]="e.link"><img class="card-img-top" [src]="e.image" alt="APII"></a>
+                <div class="card-body">
+                    <h5 class="card-title">{{e.event_name}}</h5>
+                    <p>{{e.description}}</p>
+                    <p class="card-text"><i class="bi bi-calendar"></i> {{e.date}}</p>
+                    <p class="card-text"><i class="bi bi-geo-alt-fill"></i> {{e.location}}</p>
+                </div>
             </div>
         </div>
     </div>

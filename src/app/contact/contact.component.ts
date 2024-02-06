@@ -9,52 +9,58 @@ import { HttpErrorResponse } from '@angular/common/http';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
-export class ContactComponent implements OnInit{
-  contactForm!:FormGroup
-  constructor(private fb:FormBuilder,private contactService:ContactServiceService){}
+export class ContactComponent implements OnInit {
+  contactForm!: FormGroup
+  formSubmitted = false;
+
+  constructor(private fb: FormBuilder, private contactService: ContactServiceService) { }
   ngOnInit(): void {
-    this.contactForm=this.fb.group(
+    this.contactForm = this.fb.group(
       {
-        name:['',Validators.required],
-        email:['',[Validators.email,Validators.required]],
-        phone:[,[Validators.required,Validators.minLength(8),Validators.maxLength(8)]],
-        message:['',Validators.required],
-        source:[''],
+        name: ['', Validators.required],
+        email: ['', [Validators.email, Validators.required]],
+        phone: [, [Validators.required, Validators.minLength(8), Validators.maxLength(8)]],
+        message: ['', Validators.required],
+        source: [''],
       }
     )
   }
 
-  get name(){
+  get name() {
     return this.contactForm.get('name');
   }
-  get email(){
+  get email() {
     return this.contactForm.get('email');
   }
-  get phone(){
+  get phone() {
     return this.contactForm.get('phone');
   }
-  get message(){
+  get message() {
     return this.contactForm.get('message');
   }
 
-  onsubmit(){
-    const formData=this.contactForm.value;
-   // console.log(formData);
+  onsubmit() {
+    const formData = this.contactForm.value;
+    // console.log(formData);
     this.onAddContact();
-    
+
   }
 
-  onAddContact():void{
+  onAddContact(): void {
     console.log(this.contactForm.value);
-    
+
     this.contactService.addContact(this.contactForm.value).subscribe(
-      (response)=>{
+      (response) => {
         console.log(response);
         console.log("done");
-        alert("votre formulaire est bien envoyé");
-        
+        setTimeout(() => {
+          // Simulate success
+          this.formSubmitted = true;
+          this.contactForm.reset();
+        }, 2000);
+
       },
-      (error : HttpErrorResponse)=>{
+      (error: HttpErrorResponse) => {
         console.log(error);
       }
     );

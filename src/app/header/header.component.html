@@ -10,8 +10,6 @@
             <img src="../../assets/images/logo.png" alt="" style="width: 180px; height: 80px;">
         </a>
 
-        <a class="nav-link custom-btn btn d-lg-none" href="#">Buy Tickets</a>
-
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
@@ -19,7 +17,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedSection" (change)="onNavigate()" style="background-color:#273053;margin-top: 6%;color: white;">
+                    <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedSection" (click)="onNavigate()" style="background-color:#273053;margin-top: 6%;color: white;">
                         <option value="#section_2" selected>References</option>
                         <option value="#section_3">Partners</option>
                         <option value="#section_4">Medias</option>
@@ -31,16 +29,12 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link click-scroll" href="#section_6">Venue</a>
+                    <a class="nav-link click-scroll" href="#section_6">Location</a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link click-scroll" href="#section_7">Contact</a>
                 </li>
-
-                <!-- <li class="nav-item">
-                    <a class="nav-link custom-btn btn d-none d-lg-block" href="#">English</a>
-                </li> -->
             </ul>
 
         </div>
