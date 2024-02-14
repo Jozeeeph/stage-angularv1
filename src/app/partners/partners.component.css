@@ -3,25 +3,28 @@
 }
 
 .image-container {
-  display: flex;
+  position: relative;
+  height: 30vh; /* Ajustez la hauteur selon vos besoins */
+  width: 100%;
   overflow: hidden;
-  justify-content: space-between; 
-  animation: slideIn 1s forwards; 
+  display: flex;
+  justify-content: space-between; /* Ajustez selon vos préférences */
+  animation: slideAnimation 5s linear infinite alternate; /* Ajustez la durée et le type d'animation selon vos préférences */
 }
 
 .image-container img {
-  width: 100px;
-  height: 100px;
-  margin-right: 20px;
-  transform: translateX(-100%); 
+  width: 100px; 
+  height: 100px; 
+  margin: 5px;
+  border-radius: 50%; 
 }
 
-@keyframes slideIn {
-  from {
-      transform: translateX(-100%);
+@keyframes slideAnimation {
+  0% {
+    transform: translateX(0);
   }
-  to {
-      transform: translateX(0);
+  100% {
+    transform: translateX(calc(100% - 100px)); 
   }
 }
 
@@ -34,14 +37,12 @@
 
 @media screen and (max-width: 768px) {
   .image-container img {
-      width: 60px; 
-      margin-right: 15px; 
+    width: 80px;
   }
 }
 
 @media screen and (max-width: 576px) {
   .image-container img {
-      width: 40px; 
-      margin-right: 10px; 
+    width: 60px; 
   }
 }

@@ -21,7 +21,7 @@ export class ContactComponent implements OnInit {
         email: ['', [Validators.email, Validators.required]],
         phone: [, [Validators.required, Validators.minLength(8), Validators.maxLength(8)]],
         message: ['', Validators.required],
-        source: [''],
+        source: ['',Validators.required],
       }
     )
   }
@@ -37,6 +37,9 @@ export class ContactComponent implements OnInit {
   }
   get message() {
     return this.contactForm.get('message');
+  }
+  get source() {
+    return this.contactForm.get('source');
   }
 
   onsubmit() {

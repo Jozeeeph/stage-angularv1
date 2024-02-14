@@ -1,10 +1,11 @@
 
 <div id="section_5">
     <div class="event-container">
-        <h2 class="mb-5" style="text-align: center;"><u class="text-info">Events</u></h2>
-        <div class="event-card-container" *ngFor="let e of events">
-            <div class="card">
-                <a [href]="e.link"><img class="card-img-top" [src]="e.image" alt="APII"></a>
+        <h2 class="title mb-5 text-center"><u class="text-info">Events</u></h2>
+        <div class="event-card-container">
+            <div class="card" *ngFor="let e of events">
+                <a [href]="e.link"><img style="width: 300px; height: 200px;" 
+                    [src]="'data:image/jpeg;base64,' + e.eventImage?.userImage" alt=""></a>
                 <div class="card-body">
                     <h5 class="card-title">{{e.event_name}}</h5>
                     <p>{{e.description}}</p>

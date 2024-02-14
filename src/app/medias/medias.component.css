@@ -1,46 +1,49 @@
 .container {
     margin-bottom: 20px;
-}
-
-.image-container {
-    display: flex;
+  }
+  
+  .image-container {
+    position: relative;
+    height: 30vh; 
+    width: 100%;
     overflow: hidden;
+    display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
-    animation: slideIn 1s forwards; /* Apply slide-in animation */
-}
-
-.image-container img {
-    width: 100px;
+    animation: slideAnimation 5s linear infinite alternate; 
+  }
+  
+  .image-container img {
+    width: 100px; 
     height: 100px;
     margin: 5px;
-    transform: translateX(-100%); /* Initial position outside the container */
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateX(-100%);
+    border-radius: 50%; 
+  }
+  
+  @keyframes slideAnimation {
+    0% {
+      transform: translateX(0);
     }
-    to {
-        transform: translateX(0);
+    100% {
+      transform: translateX(calc(100% - 100px));
     }
-}
-
-.title {
+  }
+  
+  .title {
     font-size: 40px;
     font-weight: bold;
     margin-bottom: 10px;
     text-align: center;
-}
-
-@media screen and (max-width: 768px) {
+  }
+  
+  @media screen and (max-width: 768px) {
     .image-container img {
-        width: 80px;
+      width: 80px; 
     }
-}
-
-@media screen and (max-width: 576px) {
+  }
+  
+  @media screen and (max-width: 576px) {
     .image-container img {
-        width: 60px;
+      width: 60px;
     }
-}
+  }
+  

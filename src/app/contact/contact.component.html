@@ -52,6 +52,9 @@
                             <label for="otherSource">If other, please specify</label>
                             <input type="text" formControlName="source" name="otherSource" id="otherSource" class="form-control" placeholder="Source">
                         </div>
+                        <div *ngIf="source && source?.invalid && source?.dirty" class="alert alert-danger">
+                            source est obligatoire
+                        </div>
                         <div class="col-12">
                             <button type="submit" (click)="onsubmit()" class="form-control" [disabled]="contactForm.invalid">Submit</button>
                         </div>
